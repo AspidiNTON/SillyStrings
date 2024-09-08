@@ -1,0 +1,1 @@
+g++ .\main.cpp .\myString.cpp .\tester.cpp
