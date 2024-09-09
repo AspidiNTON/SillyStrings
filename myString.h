@@ -8,7 +8,7 @@ int myPuts(const char *s);
 
 char *myStrchr(const char *s, int c);
 
-int myStrlen(const char *s);
+size_t myStrlen(const char *s);
 
 char *myStrcpy(char *to, char *from);
 

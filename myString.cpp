@@ -19,7 +19,7 @@ char *myStrchr(const char *s, int c){
     return NULL;
 }
 
-int myStrlen(const char *s){
+size_t myStrlen(const char *s){
     size_t i = 0;
     while (s[i] != '\0') ++i;
     return i;
@@ -70,7 +70,7 @@ char *myFgets(char *s, int n, FILE *stream){
 char *myStrdup(char *s){
     size_t n = myStrlen(s);
     char* p = (char*)calloc(n + 1, sizeof(char));
-    for (int i = 0; i < n; ++i) p[i] = s[i];
+    for (size_t i = 0; i < n; ++i) p[i] = s[i];
     return p;
 }
 

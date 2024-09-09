@@ -2,13 +2,13 @@
 
 Test defaultTests[] {
     {"sfmdghma", "asetjsfrhy", 3},
-    {"srj", "syl,kfyl.", 10},
+    {"srj", "syl,kfyl.", 2},
     {"sidguuwhgsfigb", "iolfdgharg", 8},
     {"one", "two", 1},
-    {"onetwo", "t", 5},
+    {"onetwo", "t", 3},
     {"a", "b", 9},
-    {"sdtgjhdghyjmd", "xdd", 16},
-    {"", "gggb", 9},
+    {"sdtgjhdghyjmd", "xdd", 5},
+    {"", "gggb", 0},
     {"fdgn", "gggb", 1}
 };
 
@@ -90,9 +90,9 @@ int runTest(Test *test){
 }
 
 int runDefaultTests(){
-    for (int i = 0; i < sizeof(defaultTests) / sizeof(Test); ++i) {
+    for (size_t i = 0; i < sizeof(defaultTests) / sizeof(Test); ++i) {
         if (runTest(&defaultTests[i]) != 0) {
-            printf("Error at test %d\n", i + 1);
+            printf("Error at test %lld\n", i + 1);
             return i;
         }
     }

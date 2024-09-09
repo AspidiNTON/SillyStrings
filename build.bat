@@ -1,1 +1,1 @@
-g++ .\main.cpp .\myString.cpp .\tester.cpp
+g++ .\main.cpp .\myString.cpp .\tester.cpp -Wall
