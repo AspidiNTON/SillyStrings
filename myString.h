@@ -24,4 +24,8 @@ char *myStrdup(char *s);
 
 int myGetline(char *s, int n);
 
+int fileGetline(char *s, int n, FILE *stream);
+
+//bool stringComp(char *f, char *s);
+
 #endif

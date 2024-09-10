@@ -81,3 +81,32 @@ int myGetline(char *s, int n)
     s[i] = '\0';
     return i;
 }
+
+int fileGetline(char *s, int n, FILE *stream){
+    int i = 0, x;
+    while (i < n - 1 && (x = getc(stream)) != EOF && x != '\n') {
+        s[i++] = x;
+    }
+    s[i] = '\0';
+    if ((x = getc(stream)) == EOF && i == 0) return EOF;
+    return 0;
+}
+
+/*bool stringComp(char *f, char *s){
+    while (*f != '\0' && *s != '\0') {
+        while (*f != '\0' && (*f < 'a' || *f > 'z') && (*f < 'A' || *f > 'Z')) ++f;
+        if (*f == '\0') break;
+        while (*s != '\0' && (*s < 'a' || *s > 'z') && (*s < 'A' || *s > 'Z')) ++s;
+        if (*s == '\0') break;
+        if (*f == *s) {
+            ++f;
+            ++s;
+            continue;
+        }
+        if (*f < *s) return true;
+        else return false;
+    }
+    if (*f == '\0' && *s == '\0') return false;
+    if (*f == '\0') return true;
+    else return false;
+}*/
