@@ -1,8 +1,11 @@
-#include "myString.h"
-#include "sorter.h"
-
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
+
+#include "myString.h"
+#include "sorter.h"
+#include "fileReader.h"
 
 int main()
 {
@@ -14,8 +17,14 @@ int main()
         v[n++] = strdup(buff);
     }
     fclose(ptr);
+
+
+    TextFile onegin;
+    readTextBuffer(&onegin, "onegin.txt");
+
+
+
     sort((void**)v, n, sizeof(char*), stringComparator);
-    
     ptr = fopen("output.txt", "w");
     for (int i = 0; i < n; ++i) {
         fputs(v[i], ptr);

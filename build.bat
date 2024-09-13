@@ -1,1 +1,1 @@
-g++ .\main.cpp .\myString.cpp .\tester.cpp .\sorter.cpp -Wall
+g++ .\main.cpp .\myString.cpp .\tester.cpp .\sorter.cpp .\fileReader.cpp -Wall
