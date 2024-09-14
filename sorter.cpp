@@ -54,6 +54,31 @@ bool stringComparator(void *f, void *s){
     else return false;
 }
 
+bool reverseStringComparator(void *f, void *s){
+    char *x = *(char**)f;
+    char *y = *(char**)s;
+    while (*x != '\0') ++x;
+    --x;
+    while (*y != '\0') ++y;
+    --y;
+    while (*x != '\0' && *y != '\0') {
+        while (*x != '\0' && !isalpha(*x)) --x;
+        if (*x == '\0') break;
+        while (*y != '\0' && !isalpha(*y)) --y;
+        if (*y == '\0') break;
+        if (tolower(*x) == tolower(*y)) {
+            --x;
+            --y;
+            continue;
+        }
+        if (tolower(*x) < tolower(*y)) return true;
+        else return false;
+    }
+    if (*x == '\0' && *y == '\0') return false;
+    if (*x == '\0') return true;
+    else return false;
+}
+
 bool intComp(void *f, void *s){
     int x = *(int*)f;
     int y = *(int*)s;

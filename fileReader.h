@@ -9,11 +9,12 @@ struct TextFile{
     char *buff;
     int size;
     int stringCount;
-    char **text;
-    char **stringEnds;
+    char **stringPointers;
+    //char **stringEnds;
 };
 
 void readTextBuffer(TextFile *textFile, const char *filename);
 
+void printTextInFile(TextFile *textFile, const char *filename);
 
 #endif
