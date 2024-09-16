@@ -1,21 +1,18 @@
-#include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include <time.h>
 
-#include "myString.h"
 #include "sorter.h"
 #include "fileReader.h"
+#include "flags.h"
 
-int main()
-{
-    TextFile onegin;
-    readTextBuffer(&onegin, "onegin.txt");
+const flag flagsQuad[] {
+    {"-h", "--help", "shows avalible commands"},
+    {"-i", "--input", "name of the input file to sort after the flag"},
+    {"-o", "--output", "name of the output file after the flag"},
+    {"-r", "--reverse", "reverse string sorting"}
+};
 
-    sort(onegin.stringPointers, onegin.stringCount, sizeof(char*), reverseStringComparator);
-
-    printTextInFile(&onegin, "output.txt");
-
-    //runDefaultTests();
+int main(int argc, const char *argv[]) {
+    int flagsSize = sizeof(flagsQuad) / sizeof(flag);
+    checkFlags(argc, argv, flagsSize, flagsQuad);
     return 0;
 }

@@ -10,11 +10,17 @@ struct TextFile{
     int size;
     int stringCount;
     char **stringPointers;
-    //char **stringEnds;
 };
 
-void readTextBuffer(TextFile *textFile, const char *filename);
+enum fileErrorType {
+    NO_ERROR,
+    ERROR_FAILED_TO_OPEN_FILE,
+    ERROR_FAILED_TO_READ_FILE_STATS,
+    ERROR_FAILED_TO_CALLOC
+};
 
-void printTextInFile(TextFile *textFile, const char *filename);
+fileErrorType readTextBuffer(TextFile *textFile, const char *filename);
+
+fileErrorType printTextInFile(const TextFile *textFile, const char *filename);
 
 #endif

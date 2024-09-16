@@ -1,18 +1,21 @@
 #include "sorter.h"
 
+// В стандартной библиотеке Си есть bsearch, можно было сделать их совместимыми)
 int binarySearch(void *base, void *elem, size_t elemSize, int l, int r, compareFunction comporator) {
     
     while (l < r) {
         size_t m = l + (r - l) / 2;
         if ((*comporator)((char*)base + m * elemSize, (char*)elem)) l = m + 1;
-        else r = m;
+        else                                                        r = m;
     }
     return l;
 }
 
 void assign(void *f, void *s, size_t elemSize) {
+    char* x = (char*)f;
+    char* y = (char*)s;
     for (size_t i = 0; i < elemSize; ++i) {
-        *((char*)f + i) = *((char*)s + i);
+        *(x + i) = *(y + i);
     }
 }
 
