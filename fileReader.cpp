@@ -9,8 +9,8 @@ fileErrorType readTextBuffer(TextFile *textFile, const char *filename){
     if (textFile->buff == NULL) return ERROR_FAILED_TO_CALLOC;
 
     FILE *ptr = fopen(filename, "rb");
-    if (ptr == NULL) return ERROR_FAILED_TO_OPEN_FILE;
-    fread(textFile->buff + 1, sizeof(char), textFile->size, ptr);
+    if (ptr == NULL) return ERROR_FAILED_TO_OPEN_FILE; // fclose
+    fread(textFile->buff + 1, sizeof(char), textFile->size, ptr); // FIXME: 
     fclose(ptr);
     // А вообще я бы разделил эту функцию на 2
     // 1) Считать файл в буфер (очень полезная, еще 1000 раз пригодится)
@@ -22,7 +22,7 @@ fileErrorType readTextBuffer(TextFile *textFile, const char *filename){
         } else if (textFile->buff[i - 1] == '\0') ++textFile->stringCount;
     }
     textFile->stringPointers = (char**)calloc(textFile->stringCount, sizeof(char*));
-    if (textFile->stringPointers == NULL) return ERROR_FAILED_TO_CALLOC;
+    if (textFile->stringPointers == NULL) return ERROR_FAILED_TO_CALLOC; // free()
     int x = 0;
     for (int i = 1; i <= textFile->size; ++i) {
         if (textFile->buff[i] != '\0' && textFile->buff[i - 1] == '\0'){

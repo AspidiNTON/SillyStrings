@@ -8,12 +8,18 @@
 #include "sorter.h"
 //#include "colorPrint.h"
 
-struct flag {
+struct Flag {
     const char* shortName;
     const char* fullName;
     const char* description;
 };
 
-void checkFlags(int argc, const char *argv[], int flagsSize, const flag* flags);
+struct FileFlagData {
+    bool isReverse = false;
+    char inputFilename[80] = "input.txt";
+    char outputFilename[80] = "output.txt";
+};
+
+int checkFlags(int argc, const char *argv[], int flagsSize, const Flag* flags, FileFlagData *fileFlagData);
 
 #endif
