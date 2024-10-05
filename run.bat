@@ -1,2 +1,1 @@
-a.exe
-pause
+build\myprogram.exe
